@@ -41,6 +41,31 @@ $('.menu-toggle').on('click', function() {
   $('.btn-wrapper').toggleClass('menu--is-revealed');
 });
 
+
+var qtd = $('[data-rate]').length, i_qtd = 1;
+
+function rate() {
+    if(i_qtd == qtd) {
+        i_qtd=1;
+    } else i_qtd++;
+    $('[data-rate]').fadeOut(350).promise().then(f=>$(`[data-rate="${i_qtd}"]`).fadeIn(450));
+    $('.header.f .posts div').removeClass('active');
+    $(`.header.f .posts div:eq(${i_qtd-1})`).addClass('active');
+}
+
+var rateT = setInterval(rate, 5000);
+
+$('[data-rate]').each((i,f)=>$('.header.f .posts').append(`<div data-id="${i+1}" ${i==0?' class="active"':''}></div>`));
+$('.header.f .posts').on('click', 'div', function () {
+    clearInterval(rateT);
+    rateT = setInterval(rate, 5000);
+    if(i_qtd == $(this).attr('data-id')) return;
+    i_qtd = parseInt($(this).attr('data-id'));
+    $('[data-rate]').fadeOut(200).promise().then(f=>$(`[data-rate="${i_qtd}"]`).fadeIn(350));
+    $('.header.f .posts div').removeClass('active');
+    $(`.header.f .posts div:eq(${i_qtd-1})`).addClass('active');
+});
+
 /*-------------------------------------
     On Scroll back to top
     -------------------------------------*/

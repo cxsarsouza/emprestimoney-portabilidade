@@ -764,7 +764,7 @@ a, a:hover {
 }
 
 .h1-home{
-  font-size: 2.5rem;
+  font-size: 2.1rem;
   color: #09b620;
   font-weight: 700;
   text-align:center;
@@ -773,7 +773,7 @@ a, a:hover {
 .p-home{
   text-align: center;
   margin-bottom:40px;
-  font-size: 18px;
+  font-size: 17px;
 }
 
 @media screen and (max-width: 767px) {
@@ -1129,6 +1129,38 @@ a, a:hover {
   color: #9d9d9d;
 }
 
+.card-porque{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 280px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  padding: 20px;
+}
+
+.card-porque:hover{
+  transition: 0.4s;
+  transform: scale(1.05);
+}
+
+.card-porque h1{
+  font-size: 28px;
+  font-weight: 700;
+  margin: 10px 0px;
+  color: #09b620;
+}
+.card-porque h2{
+  text-align: center;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.3;
+  margin: 0px 10px;
+  color: #9d9d9d;
+}
+
 .col-adjust{
   width: 20%;
   margin: 0px 8px;
@@ -1318,7 +1350,7 @@ a, a:hover {
 
 .p-hero{
     margin-bottom: 0px;
-    font-size: 16px;
+    font-size: 18px;
     color: #fff;
     padding-bottom: 17px;
 }
@@ -1346,6 +1378,178 @@ a, a:hover {
 .i-contratos{
   color:#09b620; font-size: 30px;margin: 0px;padding: 0px 10px;
 }
+
+
+.header.f {
+  position: relative;
+  background-color: var(--principal);
+  overflow: hidden;
+}
+
+.header.f .container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  gap: 100px;
+  width: 1200px;
+  padding: 110px 0px 90px 0;
+}
+
+.header.f .pre .text {
+  color: #fff;
+  font-weight: 800;
+  font-family: 'Ghino';
+  font-size: 48px;
+  letter-spacing: -1px;
+  line-height: 55px;
+}
+
+.header.f .pre .description {
+  margin-top: 10px;
+  color: #fff;
+  font-weight: 200;
+  font-family: 'Ghino';
+  font-size: 24px;
+  letter-spacing: -1px;
+  line-height: 28px;
+}
+
+.header.f .pre .description div {
+  margin-top: 15px;
+}
+
+.header.f .rating {
+  position: relative;
+  background: #fff;
+  width: 600px;
+  border-radius: 38px;
+}
+
+.header.f .rate {
+  display: none;
+}
+
+.header.f .rate:first-child {
+  display: block;
+}
+
+.header.f .rate .profile img {
+  position: absolute;
+  top: -60px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 5px solid #fff;
+  -webkit-box-shadow: 0px 0px 20px -13px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 0px 20px -13px rgba(0,0,0,0.75);
+  box-shadow: 0px 0px 20px -13px rgba(0,0,0,0.75);
+}
+
+.header.f .rate .name {
+  color: var(--principal);
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: -1px;
+  line-height: 25px;
+  margin-top: 120px;
+  text-align: center;
+}
+
+.header.f .rate .name span {
+  color: #bfc2cc;
+  font-weight: 200;
+  font-size: 18px;
+  font-style: italic;
+}
+
+.header.f .rate .msg {
+  color: #16254c;
+  font-size: 22px;
+  letter-spacing: -1px;
+  line-height: 28px;
+  text-align: center;
+  margin-top: 15px;
+}
+
+.header.f .rate .msg span {
+  color: var(--principal);
+  font-weight: 700;
+}
+
+.header.f .posts {
+  position: absolute;
+  bottom: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: grid;
+  grid-template-columns: auto auto auto;
+}
+
+.header.f .posts div {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 1px solid #fff;
+  transition: background .3s, opacity .4s;
+  cursor: pointer;
+  margin: 5px 6px;
+}
+
+.header.f .posts div.active {
+  background: #fff;
+}
+
+.header.f .posts:hover div {
+  opacity: .4;
+}
+
+.header.f .posts div:hover {
+  opacity: 1;
+  background: rgba(255,255,255,1);
+}
+
+.pre{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+@media only screen and (max-width: 1250px) {
+
+  .header.f .container {
+    gap: 20px;
+}
+
+.header.f .rating {
+    width: 450px;
+    padding-bottom: 40px;
+}
+
+.header.f .rate .name {
+    font-size: 26px;
+}
+
+.header.f .rate .name span {
+    font-size: 14px;
+}
+
+.header.f .rate .msg {
+    font-size: 20px;
+}
+
+.header.f .pre .text {
+    font-size: 28px;
+    line-height: 38px;
+}
+
+.header.f .pre .description {
+    font-size: 18px;
+    line-height: 20px;
+}
+}
+
 
 @media only screen and (max-width: 1400px) {
 
@@ -1420,6 +1624,54 @@ a, a:hover {
 }
 
 @media only screen and (max-width: 800px) {
+
+  
+.header.f .container {
+  gap: 100px;
+  align-items: center;
+  padding: 65px 0px 90px 0;
+  flex-direction: column-reverse;
+  width: 100%;
+}
+
+.header.f .pre .text {
+  text-align: center;
+  line-height: 40px;
+  font-size: 32px;
+}
+
+.header.f .pre .description {
+  font-size: 18px;
+  text-align: center;
+  line-height: 25px;
+}
+
+.header.f .rating {
+  width: 320px;
+  height: 225px;
+  padding-bottom: 0;
+  border-radius: 25px;
+}
+
+.header.f .rate .profile img {
+  width: 120px;
+  height: 120px;
+}
+
+.header.f .rate .name {
+  margin-top: 80px;
+  font-size: 24px;
+}
+
+.header.f .rate .name span {
+  font-size: 14px;
+}
+
+.header.f .rate .msg {
+  font-size: 16px;
+  margin: 0px 20px 20px 20px;
+}
+
 
   .header.g .title:first-child {
     font-size: 32px;
