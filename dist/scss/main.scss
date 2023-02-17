@@ -1,0 +1,771 @@
+@import 'vandors';
+@import 'var';
+@import 'reset';
+@import 'mixin';
+@import 'down';
+
+html {
+    font-size: 1rem;
+}
+body {
+    font-family: 'Poppins', sans-serif;
+}
+a, a:hover {
+    text-decoration: none;
+}
+.font-small {
+    font-size: $font-small;
+}
+.font-extra-small {
+    font-size: $font-extra-small;
+}
+/*-- background color css --*/
+.theme-bg-primary {
+    background-color: $theme-primary-color;
+}
+.theme-bg-secondary {
+    background-color: $theme-secondary-color;
+}
+.theme-bg-accent-one {
+    background-color: $theme-accent-one;
+}
+.theme-bg-accent-two {
+    background-color: $theme-accent-two;
+}
+.theme-bg-accent-three {
+    background-color: $theme-accent-three;
+}
+/*-- text color css --*/
+.theme-text-white {
+    color: $theme-color-white;
+}
+.theme-text-primary {
+    color: $theme-primary-color;
+}
+.theme-text-secondary {
+    color: $theme-secondary-color;
+}
+.theme-text-accent-one  {
+    color: $theme-accent-one;
+}
+.theme-text-accent-two  {
+    color: $theme-accent-two;
+}
+/*-- shadow css --*/
+.theme-box-shadow {
+    @include theme-shadow
+}
+.theme-text-shadow {
+    text-shadow: $theme-text-shadow;
+}
+.theme-border-radius {
+    border-radius: $theme-border-radius;
+}
+/*-- custom button css*/
+.custom-btn-primary {
+    @include custom-btn-primary;
+}
+.custom-btn-secondary {
+    @include custom-btn-secondary;
+}
+/*-- preloader css --*/
+.page-loader{
+	width: 100%;
+	height: 100vh;
+	position: absolute;
+	background: $theme-color-white;
+	z-index: 1000;
+	.spinner {
+    position: relative;
+    top: 35%;
+    width: 5rem;
+    height: 5rem;
+    margin: 0 auto;
+    background-color: $theme-primary-color;
+    border-radius: 100%;  
+    -webkit-animation: sk-scaleout 1.0s infinite ease-in-out;
+    animation: sk-scaleout 1.0s infinite ease-in-out;
+    }
+    
+    @-webkit-keyframes sk-scaleout {
+      0% { 
+        transform: scale(0)
+        }
+      100% {
+        transform: scale(1.0);
+        opacity: 0;
+      }
+    }
+    
+    @keyframes sk-scaleout {
+      0% { 
+        -webkit-transform: scale(0);
+        transform: scale(0);
+      } 100% {
+        -webkit-transform: scale(1.0);
+        transform: scale(1.0);
+        opacity: 0;
+      }
+    }
+}
+/*-- header css part --*/
+.header {
+    background-color: $theme-color-white;
+    .navbar-nav {
+        .nav-item {
+            .nav-link {
+                color: $theme-accent-one;
+                padding: 1.2rem 1rem;
+                font-size: $font-small;
+                font-weight: 600;
+                @media screen and (max-width:$break-large) {
+                    padding: 0.8rem 0rem;
+                    border-bottom: 1px solid $theme-accent-three;
+                }
+            }
+            .active {
+                &:after {
+                    content: '';
+                    width: 1.25rem;
+                    height: 6px;   
+                    background: $theme-primary-color; 
+                    position: absolute;
+                    bottom: 0;
+                    display: block;
+                    left: 33%;
+                    border-radius: 3rem;
+                }
+            }
+            .dropdown-menu {
+                border-radius: 0;
+                border: 0;
+                padding: 0;
+                @include theme-shadow;
+                .dropdown-item {
+                    color:$theme-accent-one;
+                    padding: 0.8rem 1rem;
+                    font-size: $font-small;
+                    font-weight: 600;
+                    &:hover {
+                        background-color: $theme-primary-color;
+                        color:$theme-color-white;
+                    }
+                }
+
+            }
+        }
+    }
+}
+/*-- nav button effect css --*/
+.nav-effect {
+    position: relative;
+    &::before {
+        content: '';
+        position: absolute;
+        bottom: 0%;
+        left: 33%;
+        width: 1.25rem;
+        height: 6px;
+        background: $theme-primary-color;
+        transform-origin: center center;
+        transform: scale(0, 1);
+        transition: transform 0.4s cubic-bezier(1, 0, 0, 1);
+        border-radius: 3rem;
+        @media screen and (max-width:$break-large) {
+            left: 0%;
+        }
+      }
+      &:hover {
+          &:before {
+            transform-origin: center center;
+            transform: scale(1, 1);
+          }
+      }
+}
+/*-- primary button effect css --*/
+.primary-btn-effect {
+    position: relative;
+    cursor: hand;
+    overflow: hidden;
+    transition: all .3s ease-in-out;
+    z-index:10;
+    &:hover {
+        color: $theme-color-white;
+        &::before {
+            opacity:1;
+	        width: 116%;   
+        }
+        &::after{
+            opacity:1;
+            width: 120%;
+        }
+    }
+    &::before {
+        content: '';
+        width: 0%;
+        height: 100%;
+        display: block;
+        background: $theme-secondary-color;
+        position: absolute;
+        transform: skewX(-20deg);   
+        opacity: 1;
+        left: -10%;
+        top: 0;
+        z-index: -12;
+        transition: all .7s cubic-bezier(0.77, 0, 0.175, 1);
+      }
+    &::after {
+        content: '';
+        width: 0%;
+        height: 100%;
+        display: block;
+        background: $theme-primary-color;
+        position: absolute;
+        transform: skewX(-20deg);   
+        left: -10%;
+        opacity: 0;
+        top: 0;
+        z-index: -15;
+        transition: all .4s cubic-bezier(.2,.95,.57,.99);
+        box-shadow: 2px 0px 14px rgba(0,0,0,.6);
+    }
+}
+/*-- secondary button css --*/
+.icon-wrapper {
+    box-shadow: 0 0 0px 0px rgba($theme-secondary-color, 0.5);
+    cursor: pointer;
+    border-radius: 50%;
+    transition: 250ms color;
+    animation-name: wave;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    @keyframes wave {
+        0% {
+            box-shadow: 0 0 0px 0px rgba($theme-secondary-color, 0.5);
+        }
+        100% {
+            box-shadow: 0 0 0px 15px rgba($theme-secondary-color, 0);
+        }
+    }
+}
+/*-- read more button --*/
+/*-- hero section css --*/
+.hero {
+    position: relative;
+    padding-top:8rem;
+    padding-bottom:8rem;
+    @media screen and (max-width:$break-large) { 
+        padding: 0;
+    }
+    &::after { 
+        @include dots-sphape;
+        top: 0;
+        right: 0;
+        width: 700px;
+        height: 700px;
+        @media screen and (max-width:$break-medium) {
+            top: 50%;
+            right: 20%;
+        }
+    }
+    &::before {
+        @include circle-sphape;
+        top: 0;
+        left: 0;
+    }
+    
+    .hero-wrap {
+        position: relative;
+        border-radius: 100%;
+        padding: 2rem;
+        border: 2px dashed $theme-secondary-color;
+        max-width: 550px;
+        max-height: 550px;
+        margin: 0 auto;
+        @media screen and (max-width:$break-large) {  
+            margin-top: 8rem;
+            margin-bottom: 2rem;
+        }
+        @media screen and (max-width:$break-small) {  
+            max-width: 350px;
+           
+        }
+        .hero-inner {
+            background-color: $theme-accent-three;
+            border-radius: 100%;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+
+        }
+        .hero-icons {
+            .icons-box {
+                position: absolute;
+                padding: 1.5rem;
+                background-color: $theme-color-white;
+                box-shadow: $theme-box-shadow;
+                border-radius: 50%;
+                width: 6.25rem;
+                height: 6.25rem;
+                justify-content: center;
+                align-items: center;
+                display: flex;
+                transition: all ease-in-out 0.3s;
+                &:hover {
+                    background-color: $theme-secondary-color;
+                    #train-icon, #car-icon, #flight-icon, #hotel-icon, #location-icon, #api-icon { 
+                        fill: $theme-color-white;
+                    }
+                }
+                @media screen and (max-width:$break-small) { 
+                    width: 3.5rem;
+                    height: 3.5rem;
+                    padding: 1rem;
+                }
+            }
+            .icon1 {
+                top: 80px;
+                left:-10px;
+            }
+            .icon2 {
+                top: -40px;
+                left:40%;
+            }
+            .icon3 {
+                top: 80px;
+                left:84%;
+            }
+            .icon4 {
+                top: 380px;
+                left:-10px;
+                @media screen and (max-width:$break-small) {  
+                    top: 280px; 
+                }
+            }
+            .icon5 {
+                top: 380px;
+                left:84%;
+                @media screen and (max-width:$break-small) {  
+                    top: 280px; 
+                }
+            }
+            .icon6 {
+                top: 500px;
+                left:40%;
+                @media screen and (max-width:$break-small) {  
+                    top: 350px; 
+                }
+            }
+        }
+    }
+}
+/* icons float css*/
+.box-icon-float {
+	transform: translatey(0px);
+	animation: float 6s ease-in-out infinite;
+}
+@keyframes float {
+	0% {
+		transform: translatey(0px);
+	}
+	50% {
+		transform: translatey(-20px);
+	}
+	100% {
+		transform: translatey(0px);
+	}
+}
+#train-icon, #car-icon, #flight-icon, #hotel-icon, #location-icon, #api-icon {
+    fill: $theme-secondary-color;
+}
+/*-- hero heading color effect --*/
+.animate-charcter {
+  background-image: linear-gradient(-225deg, $theme-secondary-color 0%, $theme-primary-color 100%);
+  background-size: auto auto;
+  background-clip: border-box;
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textclip 2s linear infinite;
+}
+
+@keyframes textclip {
+  to {
+    background-position: 200% center;
+  }
+}
+/*-- client review css --*/
+.about-company {
+    .max {
+        max-width: 450px;
+    }
+    .review-con {
+       text-align:justify;
+    }
+    .about-pic {
+        position: relative;
+        &::before {
+            @include circle-sphape;
+            width: 400px;
+            height: 400px;
+            top: 120px;
+            right: -50px;
+            @media screen and (max-width:$break-medium) {
+                right: 0px;
+                top:350px;
+            }
+        }
+        &::after {
+            @include dots-sphape;
+            background-size: contain;
+            width: 400px;
+            height: 400px;
+            top: -60px;
+            left: -60px;
+        }
+    }
+}
+/*-- core products --*/
+.feature-list {
+    list-style: none;
+        li {
+            color: $theme-accent-two;
+            line-height: 2.5rem;
+            i {
+                color: $theme-secondary-color;
+            }
+        }
+}
+.core-product {
+    #Flight-booking-icon, #hotel-booking, #travel-api-icon, #corporate-travel {
+        fill: $theme-secondary-color;
+    }
+}
+/*-- card effect --*/
+.cardeffect {
+    transition: all 500ms ease-in-out;
+    &:hover {
+        margin-top: -0.5rem;
+        cursor: pointer;
+        box-shadow: $theme-box-shadow;
+        transition: all 800ms cubic-bezier(0.19, 1, 0.22, 1);
+        #Flight-booking-icon, #hotel-booking, #travel-api-icon, #corporate-travel {
+            fill: $theme-primary-color;
+            transition: all ease-in-out 0.3s;
+        }
+    }
+}
+/*-- services section --*/
+.services {
+    position: relative;
+    .max-1 {
+        max-width: 650px;
+        margin: 0 auto;
+    }
+    &::before {
+        @include circle-sphape;
+        top:7rem;
+        left:0;
+    }
+    &::after {
+        @include dots-sphape;
+        width: 250px;
+        height: 250px;
+        bottom:-2%;
+        left: 30%;
+        @media screen and (max-width:$break-medium) { 
+           left: 0; 
+        }
+    }
+    .service-card {
+        .point {
+            width: 2.8rem;
+            height: 2.8rem;
+            color: $theme-color-white;
+        }
+    }
+    .item {
+        overflow: hidden;
+        border-radius: $theme-border-radius;
+    }
+    .owl-nav {
+      position: absolute;
+      left:44%;
+      @media screen and (max-width:$break-medium) {  
+            left: 0; 
+        }
+        .owl-prev, .owl-next {
+            background: $theme-color-white!important;
+            color: $theme-primary-color!important;
+            box-shadow: $theme-box-shadow;
+            width: 3rem;
+            height: 3rem;
+            border-radius: 50%;
+            font-size: 2rem!important;
+            &:hover {
+                background: $theme-secondary-color!important;
+                color: $theme-color-white!important;
+        }
+      }
+    }
+}
+/*-- features section css --*/
+.features {
+    &::before {
+        content: '';
+        display: block;
+        width: 100%;
+        height: auto;
+        background-image: url(../images/map.svg);
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center center;
+        height: 650px;
+        position: absolute;
+        z-index: -1;
+    }
+    .max-2 {
+        max-width: 550px;
+        margin: 0 auto;
+    }
+}
+/*-- client review css --*/
+.review {
+    position: relative;
+    &::before {
+        @include circle-sphape;
+        width: 400px;
+        height: 400px;
+        top: 60%;
+        left: 20%;
+        @media screen and (max-width:$break-large) {
+            top: 20%;
+            left: 10%;
+        }
+        @media screen and (max-width:$break-medium) {
+            top: 50%;
+        }
+    }
+    &::after {
+        @include dots-sphape;
+        background-size: contain;
+        width: 400px;
+        height: 400px;
+        top: 10%;
+        left:10%;
+        @media screen and (max-width:$break-large) {
+            top:2%;
+            left:0;
+        }
+        @media screen and (max-width:$break-medium) {
+            top: 0%;
+        }
+    }
+    .max {
+        max-width: 450px;
+    }
+    .review-con {
+       text-align:justify;
+       .qotes-img {
+           width: auto;
+           height: auto;
+       }
+    }
+    .review-pic {
+        position: relative;
+        
+    }
+    .owl-nav {
+        position: absolute;
+        left:44%;
+        @media screen and (max-width:$break-medium) {  
+              left: 0; 
+          }
+          .owl-prev, .owl-next {
+              background: $theme-color-white!important;
+              color: $theme-primary-color!important;
+              box-shadow: $theme-box-shadow;
+              width: 3rem;
+              height: 3rem;
+              border-radius: 50%;
+              font-size: 2rem!important;
+              &:hover {
+                  background: $theme-secondary-color!important;
+                  color: $theme-color-white!important;
+          }
+        }
+      }
+}
+/*-- news & article css --*/
+.news {
+    .max {
+        max-width: 650px;
+        margin: 0 auto;
+    }
+    .news-card {
+        .tags {
+            bottom: 2rem;
+            left: 2rem;
+            z-index: 1;
+            display: block; 
+            background:$theme-color-white; 
+            border-radius: 40px;
+            cursor: pointer;
+            
+        }
+    }
+}
+/*-- image hover effect --*/
+.img-effect {
+    img {
+        transition: all 0.4s ease-in-out;
+    }
+    &:hover {
+        img {
+            transform: scale(1.5);
+        }
+    }
+}
+/*-- flood effect --*/
+.flood-effect {
+    transition: 0.25s ease-in-out;
+    overflow: hidden;
+    display: block;
+    border-radius: 40px;
+    min-width: 110px;
+    text-align: center;
+    &:hover {
+      box-shadow: inset 10rem 0 0 0 $theme-secondary-color;
+      &:hover {
+          a {
+              color:$theme-color-white;
+          }
+      }
+    }
+}
+/*-- call to action --*/
+.action-bg {
+    position: relative;
+    overflow: hidden;
+        &::before {
+            @include circle-sphape;
+            width: 400px;
+            height: 400px;
+            top: -60px;
+            right: -50px;
+            @media screen and (max-width:$break-medium) {
+                right: -20px;
+            }
+        }
+        &::after {
+            @include dots-sphape;
+            background-size: contain;
+            width: 400px;
+            height: 400px;
+            top: -60px;
+            left: -60px;
+        }
+}
+/*-- footer css part --*/
+.footer {
+    background-color: $theme-accent-one;
+    h1, h2, h3, p {
+        color: $theme-color-white;
+    }
+    p {
+        line-height: 2.2rem;
+    }
+    .link-list {
+        li {
+            line-height: 2.5rem;
+            a {
+                color: $theme-accent-two;
+                font-size: $font-small;
+                padding: 0 0 0.5rem 0;
+                &:hover {
+                    color: $theme-primary-color;
+                }
+            }
+        }
+    }
+    .social {
+        a, .botom-link {
+            color: $theme-color-white;
+            &:hover {
+                color: $theme-primary-color;
+            }
+        } 
+    }
+
+}
+/*-- back to top button css --*/
+.scrollup {
+    overflow: hidden;
+    position: fixed;
+    height: 2.5rem;
+    width: 2.5rem;
+    line-height: 2.5rem;
+    border-radius: 50%;
+    bottom: -3rem;
+    right: 3rem;
+    text-align: center;
+    z-index: 1;
+    background-color: rgba($theme-secondary-color, 0.8);
+    display: block;
+    color: white;
+    transition: all 0.5s cubic-bezier(0, 0, 0.15, 1.88);
+    i {
+        font-size: 1.5rem;
+        display: inline-block;
+        transition: all 0.5s ease-out;
+        &:hover, &:focus {
+            animation: toBottomFromTop 0.5s forwards;
+        }
+    }
+    &:hover, &:focus {
+        color: $theme-primary-color;
+    }
+}
+.scrollup.back-top {
+    bottom: 20px;
+}
+@keyframes toBottomFromTop {
+    49% {
+      transform: translateY(-20%);
+    }
+    50% {
+      opacity: 0;
+      transform: translateY(20%);
+    }
+    51% {
+      opacity: 0;
+    }
+    80% {
+      opacity: 1;
+    }
+}
+/*-- footer menu effect --*/
+.footer-link-effect {
+    position: relative;   
+    &::before {
+        content: '';
+        position: absolute;
+        bottom: 0%;
+        left: 0px;
+        width: 100%;
+        height: 2px;
+        border-radius: 0.5rem;
+        background: $theme-primary-color;
+        transform-origin: right top;
+        transform: scale(0, 1);
+        transition: transform 0.4s cubic-bezier(1, 0, 0, 1)
+    }
+    &:hover {
+        &::before {
+            transform-origin: left top;
+            transform: scale(1, 1)
+        }
+    }
+}
