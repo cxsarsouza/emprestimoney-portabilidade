@@ -1397,8 +1397,8 @@ a, a:hover {
 
 .header.f .pre .text {
   color: #fff;
-  font-weight: 800;
-  font-family: 'Ghino';
+  font-weight: 700;
+  font-family: 'Poppins', sans-serif;
   font-size: 48px;
   letter-spacing: -1px;
   line-height: 55px;
@@ -1408,8 +1408,8 @@ a, a:hover {
   margin-top: 10px;
   color: #fff;
   font-weight: 200;
-  font-family: 'Ghino';
-  font-size: 24px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 22px;
   letter-spacing: -1px;
   line-height: 28px;
 }
@@ -1466,7 +1466,8 @@ a, a:hover {
 
 .header.f .rate .msg {
   color: #16254c;
-  font-size: 22px;
+  font-size: 20px;
+  padding: 0px 30px;
   letter-spacing: -1px;
   line-height: 28px;
   text-align: center;
